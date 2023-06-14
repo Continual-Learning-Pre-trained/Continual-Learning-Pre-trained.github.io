@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="favicon.ico?">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pre-training Workshop at ICML 2022">
+
+
+    <!-- <title>Pre-training: Perspectives, Pitfalls, and Paths Forward </title> -->
+    <title>Continual Learning and Its Extension to Pre-trained Models </title> 
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700&display=swap" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="page-top" class="index">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!--<ul class="nav navbar-nav navbar-middle">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+
+                    </ul>-->
+                    <ul class="nav navbar-nav navbar-middle">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+
+                        <li>
+                            <a class="page-scroll" href="#" style='padding-left: 0px; font-size:22px;'>IJCAI Continual Learning Tutorial 2023</a>
+                        </li>
+                        <li>
+                            <a style='padding-left: 60px;'></a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#Brief Description">Brief Description</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#introduction">Overview</a>
+                        </li>
+
+                        <!-- <li>
+                            <a class="page-scroll" href="#call">Call for Papers</a>
+                        </li> -->
+                        <!-- <li>
+                            <a class="page-scroll" href="#dates">Important Dates</a>
+                        </li> -->
+                        <li>
+                            <a class="page-scroll" href="#program">Schedule</a>
+                        </li>
+                        <!-- <li>
+                            <a class="page-scroll" href="#speaker">Invited Speakers</a>
+                        </li>
+						<li>
+						    <a class="page-scroll" href="#panelist">Panelists</a>
+						</li> -->
+                        <!-- <li>
+                        <a class="page-scroll" href="#papers">Accepted Papers</a>
+                    </li> -->
+
+
+
+                        <li>
+                            <a class="page-scroll" href="#organization">Presenters</a>
+                        </li>
+                        <li>
+                        <!--<li>
+                            <a class="page-scroll" href="#contactt">Contact</a>
+                        </li>-->
+                        <li>
+
+                            <!-- <li>
+                        <a class="buttom" href="index_2020.html">TSW 2020</a>
+                    </li> -->
+
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <style>
+            header {
+                background-image: url(img/bggg.jpg);
+                color: #fff
+            }
+			A.style1:link {
+				color: whitesmoke;
+				text-decoration:none; 
+			}
+			A.style1:visited { 
+				color: whitesmoke; 
+				text-decoration:none; 
+			} 
+			A.style1:hover {
+				text-decoration: underline;
+			}
+        </style>
+        <div class="container">
+            </br>
+            <div class="intro-text">
+                <div class="intro-lead-in">IJCAI 2023 Tutorial on</div>
+                </br>
+                <div class="intro-heading">Continual Learning </br> and Its Extension to Pre-trained Models</div>
+                </br>
+           
+                <div class="intro-lead-in">August 19 AM, 2023</div>  
+                
+                <div class="intro-lead-in">Macao, S.A.R.</div>
+				
+				<div class="intro-lead-in">
+					<!-- <div > -->
+					Details: <a href="https://ijcai-23.org/tutorials/" class='style1'>https://ijcai-23.org/tutorials/</a>
+					<!-- </div> -->
+				</div>
+                <!-- <div class="intro-lead-in"> Time Series Workshop @ <a href="https://icml.cc/Conferences/2019"
+                        target=_blank>ICML 2019</a></br>June 14, 2019. Long Beach, USA</div> -->
+                <!--a href="#call" target=_blank class="page-scroll btn btn-xl">Submit a Paper</a-->
+            </div>
+        </div>
+    </header>
+    </br></br></br></br>
+
+
+    <!-- Brief Description Section -->
+    <!-- <section id="bref description">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Breaf Description</h2>
+                </div>
+            </div>
+            <div class="row text-justify">
+                <div class="col-md-12">
+                    <p class="large text-muted">
+                        Continual learning empowers machines to approach human-level intelligence, continuously and quickly learning new tasks with a small amount of labeled data and without forgetting previously learned knowledge. In this tutorial, we~provide a review of the current literature in this field, with a specific on continual learning of large-scale pre-trained models.
+                    </p></br>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="Brief Description">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Brief Description</h2>
+                    <!--h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3-->
+                </div>
+            </div>
+            <div class="row text-justify">
+                <div class="col-md-12">
+                    <p class="large text-muted">
+                        Continual learning empowers machines to approach human-level intelligence, continuously and quickly learning new tasks with a small amount of labeled data and without forgetting previously learned knowledge. In this tutorial, we~provide a review of the current literature in this field, with a specific on continual learning of large-scale pre-trained models.
+                    </p></br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Introduction Section -->
+    <section id="introduction">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Overview</h2>
+                    <!--h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3-->
+                </div>
+            </div>
+            <div class="row text-justify">
+                <div class="col-md-12">
+                    <p class="large text-muted">
+                        Human intelligence excels at continuously accumulating knowledge and quickly adapting to novel tasks over time, though deep learning still struggles to either retain previously learned knowledge or transfer them for fast adaptation as new tasks arrive. This gap has spawned the burgeoning field of continual learning, which aims to enable deep neural networks to accumulate knowledge incrementally in a non-stationary environment without forgetting and with forward transfer. In light of the ongoing paradigm shift in artificial intelligence towards pre-training and fine-tuning, the continual update of gigantic pre-trained models presents both unprecedented challenges and great opportunities for the field.
+                    </p></br>
+
+                    <!-- <p class="large text-muted">
+                        This tutorial begins by providing an overview of the problem definition, expected capabilities and evaluation metrics in continual learning. We then review the current literature on conventional continual learning, covering the following three topics: (1) existing settings and benchmarks, to assess their relevance to  real-world continual learning applications, (2) trending techniques for avoiding catastrophic forgetting and their effectiveness, (3) trending techniques for promoting forward transfer and their effectiveness. Next, we review extended continual learning approaches for large-scale pre-trained models, by discussing (1) new challenges and opportunities presented, and (2) trending techniques. Finally, we conclude with a discussion of successful applications and open questions for future research in continual learning.
+                    </p></br> -->
+                    <p class="large text-muted">
+                        This tutorial begins by providing an overview of the problem definition, expected capabilities and evaluation metrics in continual learning. We then review the current literature on conventional continual learning, covering the following three topics: 
+                    <ul class="large text-muted", style="float:left; width: 100%"> 
+                    <li> Existing settings and benchmarks, to assess their relevance to  real-world continual learning applications</li>
+                    <li> Trending techniques for avoiding catastrophic forgetting and their effectiveness. </li>
+                    <li> Trending techniques for promoting forward transfer and their effectiveness. </li>
+                    </ul></br>
+                    </p></br>
+
+                    <p class="large text-muted">
+                        Next, we review extended continual learning approaches for large-scale pre-trained models, by discussing (1) new challenges and opportunities presented, and (2) trending techniques. Finally, we conclude with a discussion of successful applications and open questions for future research in continual learning.
+                    </p></br>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- call for papers -->
+    <!-- <section id="call" class="bg-mid-gray"> -->
+    <!-- <section id="call">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Call for Papers</h2>
+
+                    <div class="row text-justify">
+                        <div class="col-md-12">
+
+
+                            <p class="large text-muted">
+                                We welcome submissions from areas of pre-trained models, few-shot learning, transfer learning, self-supervised learning, meta-learning, etc. We also invite submissions from researchers in other application areas such as physics, chemistry, biology. To summarize, the topics include but are not limited to:
+                            </p>
+
+                            <ul class="large text-muted" style="float:left; width: 100%">
+                                <li> Theoretical foundations of connections and differences between different pre-training methods (supervised pre-training, self-supervised pre-training with different auxiliary tasks, meta-learning, etc.)</li>
+                                <li> Empirical analysis of various pre-training methods</li>
+                                <li> Generalization bounds of different pre-training methods</li>
+                                <li> Novel pre-training methods to maximize generalization</li>
+                                <li> Model selection among a zoo of pre-trained models</li>
+                                <li> New fine-tuning techniques for maximally leveraging a pre-trained model</li>
+                                <li> Pre-training for various application domains, such as computer vision, natural language processing, robotics, physics, drug discovery, and environmental sustainability</li>
+                            </ul>
+                            <p class="large text-muted"><mybold>Submission URL:</mybold> &nbsp; <a href="https://openreview.net/group?id=ICML.cc/2022/Workshop/Pre-Training">https://openreview.net/group?id=ICML.cc/2022/Workshop/Pre-Training</a></p>
+                            <p class="large text-muted"><mybold>Format:</mybold> &nbsp;All submissions must be in PDF format and <b>anonymized</b>. Submissions are limited to <b>four</b> content pages, including all figures and tables; unlimited additional pages containing references and supplementary materials are allowed. Reviewers may choose to read the supplementary materials but will not be required to. <b>Camera-ready versions may go up to five content pages.</b>
+                            </p>
+                            <p class="large text-muted"><mybold>Style file:</mybold> &nbsp; You must format your submission using the ICML 2022 LaTeX style file. For your convenience, we have modified the main conference style file to refer to the Pre-training workshop: <a href="pre-training.sty">pre-training.sty</a>. Please include the references and supplementary materials in the same PDF as the main paper. The maximum file size for submissions is 50MB. Submissions that violate the ICML style (e.g., by decreasing margins or font sizes) or page limits may be rejected without further review.
+                            </p>
+                            <p class="large text-muted"><mybold>Dual-submission policy:</mybold> &nbsp;We welcome ongoing and unpublished work. We will also accept papers that are under review at the time of submission, or that have been recently accepted without published proceedings.
+                            </p>
+                            <p class="large text-muted"><mybold>Non-archival:</mybold> &nbsp;The workshop is a non-archival venue and will not have official proceedings. Workshop submissions can be subsequently or concurrently submitted to other venues.
+                            </p>
+                            <p class="large text-muted"><mybold>Visibility:</mybold> &nbsp;Submissions and reviews will not be public. Only accepted papers will be made public.
+                            </p>
+                            <p class="large text-muted"><mybold>Contact:</mybold> &nbsp;For any questions, please contact us at <a href="mailto:pretraining2022@googlegroups.com">pretraining2022@googlegroups.com</a>.
+                            </p>
+                            <p class="large text-muted"><mybold>If you would like to become a reviewer for this workshop, please let us know at <a href="https://t.co/gaHT0VA2Sl">https://t.co/gaHT0VA2Sl</a>.</mybold>
+                            </p>
+                            </br>
+                        </div>
+                    </div>
+
+                </div>
+    </section> -->
+    
+
+    <!-- Dates Section -->
+    <!-- <section id="dates">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Important Dates</h2>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-4 text-left">
+                    &nbsp;
+                </div>
+                <div class="row text-justify ">
+                    <div class="col-md-8">
+                        <ul style="float:left; width: 100%">
+                            <p class="large text-muted">
+                                <b>Submission deadline:</b> <del>May 22th, 2022, AOE</del> May 25th, 2022, AOE
+                            </p>
+                            <p class="large text-muted">
+                                <b>Notification to authors:</b> June 13th, 2022, AOE
+                            </p>
+                            <p class="large text-muted">
+                                <b>Video recording deadline (contributed talk only):</b> July 1st, 2022
+                            </p>
+                            <p class="large text-muted">
+                                <b>Final workshop program, camera-ready deadline:</b> July 8th, 2022
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="accepted">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Accepted papers</h2>
+                </div>
+            </div>
+            <p class="large text-muted">
+            Please kindly find the list of accepted papers <a href="https://openreview.net/group?id=ICML.cc/2022/Workshop/Pre-Training#accept">here</a>.
+            </p>
+        </div>
+    </section> -->
+
+
+    <!-- Program Section -->
+    <section id="program">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Schedule</h2>
+                </div>
+            </div>
+            <p class="large text-muted">
+                This is the tentative schedule of the workshop (1/2 day).
+            <!-- This is the tentative schedule of the workshop.  All slots are provided in Eastern Time (ET).  -->
+            </p>
+            <div id="schedule">
+                <div class="container w">
+                    <!-- <h3>Morning Session</h3> <br> -->
+                    <div class="row centered">
+                        <table class="table table-striped" border="2" cellpadding="2" cellspacing="2">
+                            <tbody>
+                                <tr>
+                                    <td> [20 minimutes] </td>
+                                    <td>Introduction and opening remarks</td>
+                                </tr>
+                                <tr>
+                                    <td> [125 minimutes] </td>
+                                    <td> Part 1: Conventional Continual Learning </td>
+                                </tr>
+                                <tr>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [25 min] </td>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Existing settings and benchmarks, illustrated with real-world applications</td>
+                                </tr>
+                                <tr>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [50 min]</td>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Approaches for catastrophic forgetting </td>
+                                </tr>
+                                <tr>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [50 min]</td>
+                                    <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Approaches for forward transfer </td>
+                                </tr>
+                                <tr>
+                                    <td>[45 minimutes]</td>
+                                    <td>Part 2: Continual Learning of Pre-trained Models</td>
+                                </tr> 
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [15 min]</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Challenges and opportunities</td>
+                                </tr> 
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [30 min]</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Approaches</td>
+                                </tr>                           
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="col-lg-1 text-left">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Speaker Section -->
+    <!-- <section id="speaker">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h2 class="section-heading">Invited Speakers</h2>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+
+            <div class="row row-centered ">
+                <div class="col-sm-2">
+                    <div class="team-member">
+                        <img src="img/speakers/Oriol_Vinyals.jpeg" height="150" width="150" class="img-responsive img-circle">
+                        <a href="https://research.google/people/OriolVinyals/">
+                            <h4>Oriol Vinyals</h4>
+                        </a>
+                        <p class="text-muted">Deepmind</p>
+                    </div>
+                </div>
+
+                <div class="row row-centered ">
+                    <div class="col-sm-2">
+                        <div class="team-member">
+                            <img src="img/speakers/Hanie_Sedgh.jpeg" height="150" width="150" class="img-responsive img-circle">
+                            <a href="https://haniesedghi.com/">
+                                <h4>Hanie Sedghi</h4>
+                            </a>
+                            <p class="text-muted">Google Brain</p>
+                        </div>
+                    </div>
+
+                    <div class="row row-centered ">
+                        <div class="col-sm-2">
+                            <div class="team-member">
+                                <img src="img/speakers/Xinlei_Chen.jpeg" height="150" width="150" class="img-responsive img-circle">
+                                <a href="https://xinleic.xyz/">
+                                    <h4>Xinlei Chen</h4>
+                                </a>
+                                <p class="text-muted">Meta AI</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row row-centered ">
+                            <div class="col-sm-2">
+                                <div class="team-member">
+                                    <img src="img/speakers/Mohit_Bansal.png" height="150" width="150"
+                                        class="img-responsive img-circle">
+                                    <a href="https://www.cs.unc.edu/~mbansal/">
+                                        <h4>Mohit Bansal</h4>
+                                    </a>
+                                    <p class="text-muted">UNC Chapel Hill</p>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row row-centered ">
+                                <div class="col-sm-2">
+                                    <div class="team-member">
+                                        <img src="img/speakers/nathan.jpeg" height="150" width="150"
+                                            class="img-responsive img-circle">
+                                        <a href="https://coley.mit.edu/">
+                                            <h4>Nathan C. Frey</h4>
+                                        </a>
+                                        <p class="text-muted">MIT</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="container">
+                                <br />
+                                <br />
+                                             <div class="row row-centered ">
+                                                <div class="col-sm-2">
+                                                    <div class="team-member">
+                                                        <img src="img/speakers/Sara_Beery.jpeg" height="150" width="150"
+                                                            class="img-responsive img-circle">
+                                                        <a href="https://beerys.github.io/">
+                                                            <h4> Sara Beery</h4>
+                                                        </a>
+                                                        <p class="text-muted">Caltech</p>
+                                                    </div>
+                                                </div>
+                                                 
+                                                    <div class="row row-centered ">
+                                                        <div class="col-sm-2">
+                                                            <div class="team-member">
+                                                                <img src="img/speakers/Maithra_Raghu.jpeg" height="150"
+                                                                    width="150" class="img-responsive img-circle">
+                                                                <a href="https://maithraraghu.com/">
+                                                                    <h4>Maithra Raghu</h4>
+                                                                </a>
+                                                                <p class="text-muted">Google Brain</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row row-centered ">
+                                                            <div class="col-sm-2">
+                                                                <div class="team-member">
+                                                                    <img src="img/speakers/Charles_Sutton.jpeg" height="150" width="150"
+                                                                        class="img-responsive img-circle">
+                                                                    <a href="https://homepages.inf.ed.ac.uk/csutton/">
+                                                                        <h4>Charles Sutton</h4>
+                                                                    </a>
+                                                                    <p class="text-muted">Google Brain</p>
+                                                                </div>
+                                                            </div>           
+                                                    </div>
+                                                </div>
+
+    </section> -->
+	
+	<!-- Speaker Section -->
+	<!-- <section id="panelist">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-12 ">
+	                <h2 class="section-heading">Panelists</h2>
+	            </div>
+	        </div>
+	        <br />
+	        <br />
+	        <br />
+	
+	        <div class="row row-centered ">
+	            <div class="col-sm-2">
+	                <div class="team-member">
+	                    <img src="img/panelist/jason_d_lee.jpg" height="150" width="150" class="img-responsive img-circle">
+	                    <a href="https://jasondlee88.github.io/">
+	                        <h4>Jason D. Lee</h4>
+	                    </a>
+	                    <p class="text-muted">Princeton University</p>
+	                </div>
+	            </div>
+	
+	            <div class="row row-centered ">
+	                <div class="col-sm-2">
+	                    <div class="team-member">
+	                        <img src="img/panelist/‪Zhangyang_(Atlas)_Wang_square.png" height="150" width="150" class="img-responsive img-circle">
+	                        <a href="https://express.adobe.com/page/CAdrFMJ9QeI2y/">
+	                            <h4>‪Zhangyang (Atlas) Wang</h4>
+	                        </a>
+	                        <p class="text-muted">University of Texas at Austin</p>
+	                    </div>
+	                </div>
+	
+	                <div class="row row-centered ">
+	                    <div class="col-sm-2">
+	                        <div class="team-member">
+	                            <img src="img/panelist/James_Zou_square.png" height="150" width="150" class="img-responsive img-circle">
+	                            <a href="https://www.james-zou.com/">
+	                                <h4>James Zou</h4>
+	                            </a>
+	                            <p class="text-muted">Stanford University</p>
+	                        </div>
+	                    </div>
+	
+	
+	
+	                    <div class="row row-centered ">
+							<div class="col-sm-2">
+							    <div class="team-member">
+							        <img src="img/speakers/Oriol_Vinyals.jpeg" height="150" width="150" class="img-responsive img-circle">
+							        <a href="https://research.google/people/OriolVinyals/">
+							            <h4>Oriol Vinyals</h4>
+							        </a>
+							        <p class="text-muted">Deepmind</p>
+							    </div>
+							</div>
+	
+	
+	                        <div class="row row-centered ">
+	                            <div class="col-sm-2">
+	                                <div class="team-member">
+	                                    <img src="img/speakers/Maithra_Raghu.jpeg" height="150"
+	                                        width="150" class="img-responsive img-circle">
+	                                    <a href="https://maithraraghu.com/">
+	                                        <h4>Maithra Raghu</h4>
+	                                    </a>
+	                                    <p class="text-muted">Google Brain</p>
+	                                </div>
+	                            </div>
+							
+							<div class="row row-centered ">
+							    <div class="col-sm-2">
+							        <div class="team-member">
+							            <img src="img/speakers/Xinlei_Chen.jpeg" height="150" width="150" class="img-responsive img-circle">
+							            <a href="https://xinleic.xyz/">
+							                <h4>Xinlei Chen</h4>
+							            </a>
+							            <p class="text-muted">Meta AI</p>
+							        </div>
+							    </div>
+								
+	                        
+	
+	</section> -->
+
+    <section id="organization">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-heading">Tutorial Presenters</h2>
+                    <!--h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3-->
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="row row-centered ">
+
+
+                                <div class="row row-centered ">
+                                    <div class="col-sm-2">
+                                        <div class="team-member">
+                                            <img src="img/organizers/Ying_WEI.jpeg" height="150" width="150"
+                                                class="img-responsive img-circle">
+                                            <a href="https://wei-ying.net">
+                                                <h4>Ying Wei</h4>
+                                            </a>
+                                            <p class="text-muted">City University of Hong Kong</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row row-centered ">
+                                        <div class="col-sm-2">
+                                            <div class="team-member">
+                                                <img src="img/organizers/Dawei_Zhou.jpg" height="150" width="150"
+                                                    class="img-responsive img-circle">
+                                                <a href="http://www.lamda.nju.edu.cn/zhoudw/">
+                                                    <h4>Dawei Zhou</h4>
+                                                </a>
+                                                <p class="text-muted">Nanjing University</p>
+                                            </div>
+                                        </div>
+
+                                    <div class="row row-centered ">
+                                        <div class="col-sm-2">
+                                            <div class="team-member">
+                                                <img src="img/organizers/Jiahan_Ye.jpg" height="150" width="150"
+                                                    class="img-responsive img-circle">
+                                                <a href="http://www.lamda.nju.edu.cn/yehj/">
+                                                    <h4>Jiahan Ye</h4>
+                                                </a>
+                                                <p class="text-muted">Nanjing University</p>
+                                            </div>
+                                        </div>
+
+    </section>
+
+
+
+    <!-- <section id="contactt">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="section-heading">Contact</h2>
+                                            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                                            <p class="large text-muted">
+
+                                                Please contact if you have any questions.
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+    </section>-->
+
+
+
+
+
+
+<!--     <section id="contact">
+        <br class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">Sponsored by</h3>
+            </div>
+        </div>
+        <div class="center">
+            <center>
+            <a >
+                <img src="img/logo2x.png" class="center" alt="" height="120" usemap="#planetmap">
+                <map name="planetmap">  
+                     
+                   <area shape="rect" coords="0,0,250,250" alt="Sun" href="https://realai.ai">  
+                    
+                 </map>  
+            </a>
+                
+            </center>
+        </div> -->
+
+
+
+        <!-- </div> -->
+    <!-- </section> -->
+
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+
+</body>
+
+</html>
